@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D02D43F32A3772380040F8B2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D02D43F22A3772380040F8B2 /* main.cpp */; };
+		D02D43FB2A3773C80040F8B2 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02D43FA2A3773C80040F8B2 /* OpenGL.framework */; };
+		D02D43FF2A37744C0040F8B2 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D02D43FE2A37744C0040F8B2 /* libglfw.3.3.dylib */; };
+		D0643E462A377D5A00B316F0 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D0643E452A377D5A00B316F0 /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		D02D43EF2A3772380040F8B2 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02D43F22A3772380040F8B2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D02D43FA2A3773C80040F8B2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D02D43FE2A37744C0040F8B2 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		D0643E452A377D5A00B316F0 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../../native_dependencies/glad/src/glad.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02D43FF2A37744C0040F8B2 /* libglfw.3.3.dylib in Frameworks */,
+				D02D43FB2A3773C80040F8B2 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +49,10 @@
 		D02D43E62A3772380040F8B2 = {
 			isa = PBXGroup;
 			children = (
+				D0643E452A377D5A00B316F0 /* glad.c */,
 				D02D43F12A3772380040F8B2 /* Test */,
 				D02D43F02A3772380040F8B2 /* Products */,
+				D02D43F92A3773C80040F8B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +70,15 @@
 				D02D43F22A3772380040F8B2 /* main.cpp */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		D02D43F92A3773C80040F8B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D02D43FE2A37744C0040F8B2 /* libglfw.3.3.dylib */,
+				D02D43FA2A3773C80040F8B2 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02D43F32A3772380040F8B2 /* main.cpp in Sources */,
+				D0643E462A377D5A00B316F0 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,20 +258,44 @@
 		D02D43F72A3772380040F8B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U794KR8K49;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.8/include,
+					/Users/joaopauloarnoldbarros/Developer/native_dependencies/glad/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		D02D43F82A3772380040F8B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U794KR8K49;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.8/include,
+					/Users/joaopauloarnoldbarros/Developer/native_dependencies/glad/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
